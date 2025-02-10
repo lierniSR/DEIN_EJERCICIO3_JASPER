@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.liernisarraoa.ejercicio3.Controlador.SupermercadoControlador">
+   <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Graficos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
+                           <children>
+                              <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#informeGraficos" text="Abrir Informe" />
+                           </children>
+                        </FlowPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Tabla de productos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#informeTablaProductos" text="Abrir Informe" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Secciones">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#informeSecciones" text="Abrir Informe" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Productos">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#informeProducto" text="Abrir Informe" />
+                           </children>
+                        </FlowPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>
