@@ -100,16 +100,31 @@ public class SupermercadoControlador {
 
     @FXML
     void informeTablaProductos(ActionEvent event) {
-        ConexionDB connection;
+        LocalDate fechaActual = LocalDate.now();
         try {
-            connection = new ConexionDB(); // Instanciar la conexión con la base de datos
-            JasperReport report = (JasperReport) JRLoader.loadObject(Supermercado.class.getResource("reportes/InformeTablaProductos.jasper"));
-            JasperPrint jprint = JasperFillManager.fillReport(report, null, connection.getConexion());
-            JasperViewer viewer = new JasperViewer(jprint, false);
-            viewer.setVisible(true); // Mostrar el informe al usuario
-        } catch (JRException | SQLException e) {
-            System.err.println(e.getMessage());
-            alerta("Error en el informe.");
+            // Ruta del archivo Jasper (compilado)
+            String reportPath = "C:\\DM2\\DEIN\\ProyectoFXJasper\\Ejercicio3\\src\\main\\resources\\es\\liernisarraoa\\ejercicio3\\reportes\\TablaProductos.jasper";
+
+            // Cargar el archivo Jasper
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(reportPath);
+
+            // Configurar conexión a la base de datos
+            String dbUrl = "jdbc:mariadb://localhost:3306/supermercado";
+            String dbUser  = propiedades.getProperty("db.usuario");
+            String dbPassword = propiedades.getProperty("db.contrasenia");
+
+            Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+            // Llenar el informe con datos
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
+
+
+            // Mostrar el informe
+            JasperViewer.viewReport(jasperPrint, false);
+
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
