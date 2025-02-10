@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd
+http://jasperreports.sourceforge.net/jasperreports " name="InformeGraficos" pageWidth="595" pageHeight="842"
+			  columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+			  uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MariaDB"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  
+    nombre AS nombre, 
+    stock AS unidades
+FROM supermercado.producto]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supermercado"/>
+	</field>
+	<field name="stock" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="stock"/>
+		<property name="com.jaspersoft.studio.field.name" value="stock"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supermercado"/>
+	</field>
+	<title>
+		<band height="102">
+			<staticText>
+				<reportElement x="0" y="0" width="370" height="66" uuid="bcd21833-936d-48fc-bf83-144e1142edce"/>
+				<textElement>
+					<font fontName="Times New Roman" size="50"/>
+				</textElement>
+				<text><![CDATA[AImarket]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="66" width="366" height="29" uuid="6ee671db-1070-4f16-8d79-bcc74bc5fc8e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="19"/>
+				</textElement>
+				<text><![CDATA[18 Nueva Calle, 19994 Madrid, España]]></text>
+			</staticText>
+			<image>
+				<reportElement x="460" y="1" width="95" height="94" uuid="d0e35d0d-4789-47a8-b3a6-ff38f92641cc"/>
+				<imageExpression>
+					<![CDATA["C:/DM2/DEIN/ProyectoFXJasper/Ejercicio3/src/main/resources/es/liernisarraoa/ejercicio3/imagenes/carrito_compra.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="2" y="0" width="551" height="20" uuid="04deb9f0-e32a-48b9-946c-f85e7116e091"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stock de cada Producto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="25">
+			<textField>
+				<reportElement x="513" y="0" width="40" height="20" uuid="45e68351-f71d-4b1c-892e-a678a1a43ba7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="329">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="2" y="0" width="553" height="329" uuid="b89f61a6-7f16-4bb7-9704-ef384f591022"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{nombre}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{stock}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
