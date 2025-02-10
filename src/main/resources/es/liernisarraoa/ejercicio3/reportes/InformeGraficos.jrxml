@@ -1,85 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
-			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd
-http://jasperreports.sourceforge.net/jasperreports " name="InformeGraficos" pageWidth="595" pageHeight="842"
-			  columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
-			  uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MariaDB"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeGraficos" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f73b07aa-60a7-4ee7-b4b1-3dc1a5d4b540">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MariaDB"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT  
-    nombre AS nombre, 
-    stock AS unidades
+		<![CDATA[SELECT 
+    producto.nombre,
+    producto.stock
 FROM supermercado.producto]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
 		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supermercado"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
 	</field>
 	<field name="stock" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="stock"/>
 		<property name="com.jaspersoft.studio.field.name" value="stock"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supermercado"/>
+		<property name="com.jaspersoft.studio.field.label" value="stock"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
 	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
 	<title>
-		<band height="102">
-			<staticText>
-				<reportElement x="0" y="0" width="370" height="66" uuid="bcd21833-936d-48fc-bf83-144e1142edce"/>
-				<textElement>
-					<font fontName="Times New Roman" size="50"/>
-				</textElement>
-				<text><![CDATA[AImarket]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="80" y="66" width="366" height="29" uuid="6ee671db-1070-4f16-8d79-bcc74bc5fc8e"/>
-				<textElement>
-					<font fontName="Times New Roman" size="19"/>
-				</textElement>
-				<text><![CDATA[18 Nueva Calle, 19994 Madrid, España]]></text>
-			</staticText>
-			<image>
-				<reportElement x="460" y="1" width="95" height="94" uuid="d0e35d0d-4789-47a8-b3a6-ff38f92641cc"/>
-				<imageExpression>
-					<![CDATA["C:/DM2/DEIN/ProyectoFXJasper/Ejercicio3/src/main/resources/es/liernisarraoa/ejercicio3/imagenes/carrito_compra.png"]]></imageExpression>
+		<band height="127" splitType="Stretch">
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="680" height="119" uuid="7c25805b-29df-413a-be57-bea61349b795"/>
+				<imageExpression><![CDATA["C:/DM2/DEIN/ProyectoFXJasper/Ejercicio3/src/main/resources/es/liernisarraoa/ejercicio3/imagenes/mercadona.png"]]></imageExpression>
 			</image>
-		</band>
-	</title>
-	<columnHeader>
-		<band height="20">
-			<staticText>
-				<reportElement x="2" y="0" width="551" height="20" uuid="04deb9f0-e32a-48b9-946c-f85e7116e091"/>
-				<textElement>
-					<font fontName="Times New Roman" size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Stock de cada Producto]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<pageFooter>
-		<band height="25">
-			<textField>
-				<reportElement x="513" y="0" width="40" height="20" uuid="45e68351-f71d-4b1c-892e-a678a1a43ba7"/>
-				<textElement>
-					<font fontName="Times New Roman" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="700" y="80" width="100" height="30" uuid="90bbb50d-8c19-46e4-a9a2-34bd5fe74459"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="1" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="329">
+		<band height="312" splitType="Stretch">
 			<barChart>
 				<chart evaluationTime="Report">
-					<reportElement x="2" y="0" width="553" height="329" uuid="b89f61a6-7f16-4bb7-9704-ef384f591022"/>
+					<reportElement x="-2" y="10" width="802" height="239" uuid="237a20af-7e94-42cb-8fd4-0a99aa34bccb"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
 				<categoryDataset>
 					<categorySeries>
-						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
 						<categoryExpression><![CDATA[$F{nombre}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{stock}]]></valueExpression>
 					</categorySeries>

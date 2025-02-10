@@ -133,7 +133,7 @@ public class SupermercadoControlador {
         LocalDate fechaActual = LocalDate.now();
         try {
             // Ruta del archivo Jasper (compilado)
-            String reportPath = "C:\\DM2\\DEIN\\ProyectoFXJasper\\Ejercicio3\\src\\main\\resources\\es\\liernisarraoa\\ejercicio3\\reportes\\ProductosInforme.jasper";
+            String reportPath = "C:\\DM2\\DEIN\\ProyectoFXJasper\\Ejercicio3\\src\\main\\resources\\es\\liernisarraoa\\ejercicio3\\reportes\\InformeGraficos.jasper";
 
             // Cargar el archivo Jasper
             JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(reportPath);
@@ -146,7 +146,7 @@ public class SupermercadoControlador {
             Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
             // Llenar el informe con datos
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap<>(), connection);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
 
 
             // Mostrar el informe
